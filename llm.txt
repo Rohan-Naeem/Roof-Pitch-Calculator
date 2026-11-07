@@ -1,0 +1,17 @@
+# Roof Pitch Calculator
+
+> Free planning calculators for roof pitch, angle, slope, rafter length, shingles and roofing materials. US units (feet and inches). Results are planning estimates only, not structural or building-code advice.
+
+- Site: https://roof-pitch-calculator.vercel.app
+- Home / Roof Pitch Calculator: https://roof-pitch-calculator.vercel.app/ — pitch, angle, slope, rafter length, multiplier
+- Shingle Roof Calculator: https://roof-pitch-calculator.vercel.app/shingle-calculator.html — bundles per square, bundles needed
+- Roof Pitch Chart: https://roof-pitch-calculator.vercel.app/roof-pitch-chart.html — 0.5/12 to 12/12, angle, slope, multiplier
+- Minimum Pitch for Metal Roof: https://roof-pitch-calculator.vercel.app/minimum-pitch-metal-roof.html
+- Shed Roof Slope Calculator: https://roof-pitch-calculator.vercel.app/shed-roof-slope-calculator.html — lean-to pitch
+- Roofing Material Calculator: https://roof-pitch-calculator.vercel.app/roofing-material-calculator.html — roof area, squares, bundles, underlayment
+- How to Calculate Roof Pitch: https://roof-pitch-calculator.vercel.app/how-to-calculate-roof-pitch.html — measuring guide, angle formula
+- About: https://roof-pitch-calculator.vercel.app/about.html
+- Contact: https://roof-pitch-calculator.vercel.app/contact.html
+- Privacy Policy: https://roof-pitch-calculator.vercel.app/privacy-policy.html
+- Terms: https://roof-pitch-calculator.vercel.app/terms.html
+- Disclaimer: https://roof-pitch-calculator.vercel.app/disclaimer.html

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shed Roof Slope Calculator | Lean-To Pitch</title>
+<meta name="description" content="Shed roof slope calculator and lean-to roof pitch calculator: pitch, angle and rafter length for a single-slope shed roof.">
+<link rel="canonical" href="https://roof-pitch-calculator.vercel.app/shed-roof-slope-calculator.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shed Roof Slope Calculator | Lean-To Pitch">
+<meta property="og:description" content="Shed roof slope calculator and lean-to roof pitch calculator: pitch, angle and rafter length for a single-slope shed roof.">
+<meta property="og:url" content="https://roof-pitch-calculator.vercel.app/shed-roof-slope-calculator.html">
+<meta property="og:site_name" content="Roof Pitch Calculator">
+<meta property="og:image" content="https://roof-pitch-calculator.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#334155;background:#fff;line-height:1.6;font-size:17px}
+a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+header.site{background:#1a2e4a;color:#fff}header.site .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:18px 0 8px}.brand img{flex:none;width:40px;height:40px}.brand a{color:#fff;font-size:24px;font-weight:700;text-decoration:none}.brand span{display:block;font-size:13px;color:#cbd5e1;font-weight:400}
+nav.main{padding:6px 0 14px;display:flex;flex-wrap:wrap;gap:4px 18px}nav.main a{color:#dbeafe;font-size:15px;padding:4px 2px}nav.main a:hover,nav.main a.active{color:#fff;text-decoration:underline}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 48px}h1{font-size:34px;line-height:1.2;color:#1a2e4a;margin:0 0 12px}h2{font-size:26px;color:#1a2e4a;margin:36px 0 10px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}h3{font-size:20px;color:#1a2e4a;margin:24px 0 8px}p{margin:0 0 14px}.lead{font-size:19px;color:#475569}
+.calc{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:22px;margin:20px 0}.calc h2{border:0;margin-top:0}
+label{display:block;font-weight:600;margin:12px 0 4px}input[type=number],select{width:100%;max-width:320px;padding:10px;border:1px solid #94a3b8;border-radius:6px;font-size:16px;background:#fff}
+.row{display:flex;flex-wrap:wrap;gap:16px}.row>div{flex:1;min-width:180px}
+button{background:#1d4ed8;color:#fff;border:0;border-radius:6px;padding:12px 22px;font-size:16px;font-weight:600;cursor:pointer;margin-top:16px}button:hover{background:#1e40af}
+.results{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:16px 18px;margin-top:18px}.results dl{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:0}.results dt{font-weight:600;color:#475569}.results dd{margin:0;font-weight:700;color:#1a2e4a;text-align:right}
+.note{background:#eff6ff;border-left:4px solid #1d4ed8;padding:12px 16px;margin:16px 0}.warn{background:#fffbeb;border-left:4px solid #d97706;padding:12px 16px;margin:16px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}th{background:#1a2e4a;color:#fff}tr.hl td{background:#dbeafe;font-weight:700}tr:nth-child(even) td{background:#f8fafc}tr.hl:nth-child(even) td{background:#dbeafe}
+.faq h3{font-size:18px;margin:22px 0 6px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}.card{border:1px solid #cbd5e1;border-radius:10px;padding:18px}.card h3{margin-top:0}
+footer.site{background:#1a2e4a;color:#cbd5e1;margin-top:20px}footer.site .wrap{max-width:1080px;margin:0 auto;padding:28px 20px}footer.site a{color:#dbeafe}footer.site nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.diagram{width:100%;max-width:520px;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+@media(max-width:640px){h1{font-size:28px}.results dl{grid-template-columns:1fr}.results dd{text-align:left}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good pitch for a shed roof?", "acceptedAnswer": {"@type": "Answer", "text": "A good pitch for a shed roof is usually between 3/12 and 6/12, depending on the size of the shed, the roofing material and the local climate. A lower pitch is simpler to build, while a higher pitch sheds rain and snow better. Check the roofing maker's minimum pitch before you choose."}}, {"@type": "Question", "name": "What is a lean-to roof pitch?", "acceptedAnswer": {"@type": "Answer", "text": "A lean-to roof pitch is the pitch of a single-slope roof that leans against a taller wall or building. It is worked out the same way as any other pitch \u2014 rise over run \u2014 and it is usually a low pitch, often 2/12 to 4/12, because a lean-to roof is often a small addition."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roof-pitch-calculator.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Shed Roof Slope Calculator", "item": "https://roof-pitch-calculator.vercel.app/shed-roof-slope-calculator.html"}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="brand"><img src="/logo-mark.svg" width="40" height="40" alt="Roof Pitch Calculator logo"><a href="/">Roof Pitch Calculator<span>Pitch, angle, rafter length and roofing materials</span></a></div>
+<nav class="main" aria-label="Main navigation"><a href="index.html">Home</a> <a href="index.html">Roof Pitch Calculator</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html" class="active">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="about.html">About</a> <a href="contact.html">Contact</a></nav>
+</div></header>
+<main>
+<h1>Shed Roof Slope Calculator</h1>
+
+<p class="lead">This shed roof slope calculator works out the pitch, angle and rafter length for a single-slope shed roof, also called a lean-to roof pitch calculator. A shed roof has one slope, not two, so the rise and run are measured across the whole width of the shed.</p>
+<section class="calc" aria-label="Shed roof slope calculator">
+<h2>Calculate shed roof slope</h2>
+<div class="row">
+<div><label for="shRiseFt">Rise — feet</label><input type="number" id="shRiseFt" value="2" min="0" step="0.25"></div>
+<div><label for="shRiseIn">Rise — inches</label><input type="number" id="shRiseIn" value="0" min="0" max="11" step="0.25"></div>
+<div><label for="shRunFt">Run (span) — feet</label><input type="number" id="shRunFt" value="8" min="0.1" step="0.25"></div>
+<div><label for="shRunIn">Run — inches</label><input type="number" id="shRunIn" value="0" min="0" max="11" step="0.25"></div>
+</div>
+<button type="button" onclick="calcShed()">Calculate shed slope</button>
+<div class="results"><dl>
+<dt>Roof pitch</dt><dd id="shPitch">&mdash;</dd>
+<dt>Angle</dt><dd id="shAngle">&mdash;</dd>
+<dt>Slope</dt><dd id="shSlope">&mdash;</dd>
+<dt>Rafter length</dt><dd id="shRafter">&mdash;</dd>
+<dt>Multiplier</dt><dd id="shMult">&mdash;</dd>
+</dl></div>
+<p><strong>Worked example:</strong> rise 2 ft, run 8 ft gives a 3:12 pitch, an angle of 14.0&deg;, a slope of 25% and a rafter length of 8.25 ft.</p>
+</section>
+<script>
+
+function fmt(n,d){return Number(n).toFixed(d===undefined?2:d)}
+function pitchResults(rise, run){
+  var r = rise/run;
+  var angle = Math.atan(r)*180/Math.PI;
+  var rafter = Math.sqrt(rise*rise+run*run);
+  var mult = rafter/run;
+  return {ratio:r, pitch: r*12, angle: angle, slope: r*100, rafter: rafter, mult: mult};
+}
+
+function calcShed(){
+  var rise=(parseFloat(document.getElementById('shRiseFt').value)||0)*12+(parseFloat(document.getElementById('shRiseIn').value)||0);
+  var run=(parseFloat(document.getElementById('shRunFt').value)||0)*12+(parseFloat(document.getElementById('shRunIn').value)||0);
+  rise=rise/12; run=run/12; if(!run||run<=0)return;
+  var r=pitchResults(rise,run);
+  document.getElementById('shPitch').textContent=fmt(r.pitch,1)+'/12';
+  document.getElementById('shAngle').textContent=fmt(r.angle,1)+'°';
+  document.getElementById('shSlope').textContent=fmt(r.slope,1)+'%';
+  document.getElementById('shRafter').textContent=fmt(r.rafter,2)+' ft';
+  document.getElementById('shMult').textContent=fmt(r.mult,3);
+}
+</script>
+<h2>Lean-to roof pitch</h2>
+<p>A lean-to roof is a single-slope roof that rests on a taller wall at one side and a lower wall at the other. Its pitch is worked out the same way as any other roof: measure the rise from the low side to the high side, measure the horizontal run across the span, and divide the rise by the run. Because lean-to roofs are often small, a pitch of 2/12 to 4/12 is common, but the roofing material sets the real minimum — check the maker's guidance for the product you plan to use.</p>
+<h2>Typical shed roof pitches</h2>
+<p>Most garden sheds use a pitch between 3/12 and 6/12. A 3/12 pitch is simple to build and keeps the shed low, while a 6/12 pitch sheds rain and snow better and gives more headroom inside. In snow areas, choose the higher end of that range where the structure allows it.</p>
+<h2>FAQs</h2>
+<div class="faq">
+<h3>What is a good pitch for a shed roof?</h3>
+<p>A good pitch for a shed roof is usually between 3/12 and 6/12, depending on the size of the shed, the roofing material and the local climate. A lower pitch is simpler to build, while a higher pitch sheds rain and snow better. Check the roofing maker's minimum pitch before you choose.</p>
+<h3>What is a lean-to roof pitch?</h3>
+<p>A lean-to roof pitch is the pitch of a single-slope roof that leans against a taller wall or building. It is worked out the same way as any other pitch — rise over run — and it is usually a low pitch, often 2/12 to 4/12, because a lean-to roof is often a small addition.</p>
+</div>
+
+</main>
+<footer class="site"><div class="wrap"><nav aria-label="Footer navigation"><a href="index.html">Home</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="how-to-calculate-roof-pitch.html">How to Calculate Roof Pitch</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="privacy-policy.html">Privacy Policy</a> <a href="terms.html">Terms</a> <a href="disclaimer.html">Disclaimer</a></nav>
+<p>Roof Pitch Calculator provides planning estimates only. It is not structural or building-code advice. Always check local building codes and consult a qualified roofing professional before work begins.</p>
+<p>&copy; 2026 Roof Pitch Calculator. All rights reserved.</p></div></footer>
+</body>
+</html>

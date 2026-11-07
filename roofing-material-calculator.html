@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roofing Material Calculator | Roof Area & Squares</title>
+<meta name="description" content="Roofing material calculator: calculate roof area, squares, shingle bundles and underlayment rolls from footprint and pitch.">
+<link rel="canonical" href="https://roof-pitch-calculator.vercel.app/roofing-material-calculator.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roofing Material Calculator | Roof Area & Squares">
+<meta property="og:description" content="Roofing material calculator: calculate roof area, squares, shingle bundles and underlayment rolls from footprint and pitch.">
+<meta property="og:url" content="https://roof-pitch-calculator.vercel.app/roofing-material-calculator.html">
+<meta property="og:site_name" content="Roof Pitch Calculator">
+<meta property="og:image" content="https://roof-pitch-calculator.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#334155;background:#fff;line-height:1.6;font-size:17px}
+a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+header.site{background:#1a2e4a;color:#fff}header.site .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:18px 0 8px}.brand img{flex:none;width:40px;height:40px}.brand a{color:#fff;font-size:24px;font-weight:700;text-decoration:none}.brand span{display:block;font-size:13px;color:#cbd5e1;font-weight:400}
+nav.main{padding:6px 0 14px;display:flex;flex-wrap:wrap;gap:4px 18px}nav.main a{color:#dbeafe;font-size:15px;padding:4px 2px}nav.main a:hover,nav.main a.active{color:#fff;text-decoration:underline}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 48px}h1{font-size:34px;line-height:1.2;color:#1a2e4a;margin:0 0 12px}h2{font-size:26px;color:#1a2e4a;margin:36px 0 10px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}h3{font-size:20px;color:#1a2e4a;margin:24px 0 8px}p{margin:0 0 14px}.lead{font-size:19px;color:#475569}
+.calc{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:22px;margin:20px 0}.calc h2{border:0;margin-top:0}
+label{display:block;font-weight:600;margin:12px 0 4px}input[type=number],select{width:100%;max-width:320px;padding:10px;border:1px solid #94a3b8;border-radius:6px;font-size:16px;background:#fff}
+.row{display:flex;flex-wrap:wrap;gap:16px}.row>div{flex:1;min-width:180px}
+button{background:#1d4ed8;color:#fff;border:0;border-radius:6px;padding:12px 22px;font-size:16px;font-weight:600;cursor:pointer;margin-top:16px}button:hover{background:#1e40af}
+.results{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:16px 18px;margin-top:18px}.results dl{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:0}.results dt{font-weight:600;color:#475569}.results dd{margin:0;font-weight:700;color:#1a2e4a;text-align:right}
+.note{background:#eff6ff;border-left:4px solid #1d4ed8;padding:12px 16px;margin:16px 0}.warn{background:#fffbeb;border-left:4px solid #d97706;padding:12px 16px;margin:16px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}th{background:#1a2e4a;color:#fff}tr.hl td{background:#dbeafe;font-weight:700}tr:nth-child(even) td{background:#f8fafc}tr.hl:nth-child(even) td{background:#dbeafe}
+.faq h3{font-size:18px;margin:22px 0 6px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}.card{border:1px solid #cbd5e1;border-radius:10px;padding:18px}.card h3{margin-top:0}
+footer.site{background:#1a2e4a;color:#cbd5e1;margin-top:20px}footer.site .wrap{max-width:1080px;margin:0 auto;padding:28px 20px}footer.site a{color:#dbeafe}footer.site nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.diagram{width:100%;max-width:520px;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+@media(max-width:640px){h1{font-size:28px}.results dl{grid-template-columns:1fr}.results dd{text-align:left}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roof-pitch-calculator.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Roofing Material Calculator", "item": "https://roof-pitch-calculator.vercel.app/roofing-material-calculator.html"}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="brand"><img src="/logo-mark.svg" width="40" height="40" alt="Roof Pitch Calculator logo"><a href="/">Roof Pitch Calculator<span>Pitch, angle, rafter length and roofing materials</span></a></div>
+<nav class="main" aria-label="Main navigation"><a href="index.html">Home</a> <a href="index.html">Roof Pitch Calculator</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html" class="active">Roofing Material Calculator</a> <a href="about.html">About</a> <a href="contact.html">Contact</a></nav>
+</div></header>
+<main>
+<h1>Roofing Material Calculator</h1>
+
+<p class="lead">This roofing material calculator works out the roof area, the number of roofing squares, the bundles of shingles and the rolls of underlayment for a roof, from its footprint and pitch. It is an area and material estimator, not a price quote — costs vary by material, area and contractor.</p>
+<section class="calc" aria-label="Roofing material calculator">
+<h2>Calculate roofing materials</h2>
+<div class="row">
+<div><label for="mLen">Footprint length (ft)</label><input type="number" id="mLen" value="40" min="0" step="0.5"></div>
+<div><label for="mWid">Footprint width (ft)</label><input type="number" id="mWid" value="30" min="0" step="0.5"></div>
+<div><label for="mPitch">Roof pitch (x:12)</label><input type="number" id="mPitch" value="6" min="0" max="24" step="0.5"></div>
+<div><label for="mWaste">Waste (%)</label><input type="number" id="mWaste" value="10" min="0" max="30" step="1"></div>
+</div>
+<button type="button" onclick="calcMat()">Calculate materials</button>
+<div class="results"><dl>
+<dt>Roof area (with waste)</dt><dd id="mArea">&mdash;</dd>
+<dt>Roofing squares</dt><dd id="mSq">&mdash;</dd>
+<dt>Shingle bundles (3 per square)</dt><dd id="mBundles">&mdash;</dd>
+<dt>Underlayment rolls (about 400 sq ft per roll)</dt><dd id="mRolls">&mdash;</dd>
+</dl></div>
+<p><strong>Assumptions stated plainly:</strong> 1 roofing square = 100 sq ft; 3 bundles of standard 3-tab shingles per square; one roll of underlayment covers about 400 sq ft. Check the packaging for the exact products you buy, because coverage varies by brand.</p>
+<p><strong>Worked example:</strong> 40 ft by 30 ft at 6/12 pitch, 10% waste — roof area about 1,476 sq ft, 14.76 squares, 45 bundles, 4 rolls of underlayment.</p>
+</section>
+<script>
+
+function fmt(n,d){return Number(n).toFixed(d===undefined?2:d)}
+function pitchResults(rise, run){
+  var r = rise/run;
+  var angle = Math.atan(r)*180/Math.PI;
+  var rafter = Math.sqrt(rise*rise+run*run);
+  var mult = rafter/run;
+  return {ratio:r, pitch: r*12, angle: angle, slope: r*100, rafter: rafter, mult: mult};
+}
+
+function calcMat(){
+  var L=parseFloat(document.getElementById('mLen').value)||0, W=parseFloat(document.getElementById('mWid').value)||0;
+  var x=parseFloat(document.getElementById('mPitch').value)||0, waste=parseFloat(document.getElementById('mWaste').value)||0;
+  var r=pitchResults(x,12); var area=L*W*r.mult*(1+waste/100); var sq=area/100;
+  document.getElementById('mArea').textContent=fmt(area,0)+' sq ft';
+  document.getElementById('mSq').textContent=fmt(sq,2)+' squares';
+  document.getElementById('mBundles').textContent=Math.ceil(sq*3)+' bundles';
+  document.getElementById('mRolls').textContent=Math.ceil(area/400)+' rolls';
+}
+</script>
+<h2>How to calculate roof area</h2>
+<p>To calculate roof area, first work out the flat footprint area by multiplying the length of the building by its width. Then multiply that figure by the roof pitch multiplier for your pitch. For a 6/12 pitch the multiplier is 1.118, so a 1,200 square foot footprint becomes about 1,342 square feet of roof. Add a waste allowance — 10 per cent for a simple roof is common — and divide by 100 to get roofing squares. That is the figure suppliers use when they quote materials.</p>
+<h2>What materials does the estimate cover?</h2>
+<p>The estimate covers shingle bundles and underlayment rolls, which are the two items that scale directly with roof area. It does not cover ridge caps, flashing, nails, vents or drip edge, because those depend on the shape of the roof, not just its area. Get a full list from your supplier or roofer before you order.</p>
+
+</main>
+<footer class="site"><div class="wrap"><nav aria-label="Footer navigation"><a href="index.html">Home</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="how-to-calculate-roof-pitch.html">How to Calculate Roof Pitch</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="privacy-policy.html">Privacy Policy</a> <a href="terms.html">Terms</a> <a href="disclaimer.html">Disclaimer</a></nav>
+<p>Roof Pitch Calculator provides planning estimates only. It is not structural or building-code advice. Always check local building codes and consult a qualified roofing professional before work begins.</p>
+<p>&copy; 2026 Roof Pitch Calculator. All rights reserved.</p></div></footer>
+</body>
+</html>

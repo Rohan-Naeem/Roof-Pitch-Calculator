@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shingle Roof Calculator | Bundles & Squares</title>
+<meta name="description" content="Shingle roof calculator: how many shingles in a bundle, how many bundles in a square, and bundles needed for your roof area.">
+<link rel="canonical" href="https://roof-pitch-calculator.vercel.app/shingle-calculator.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shingle Roof Calculator | Bundles & Squares">
+<meta property="og:description" content="Shingle roof calculator: how many shingles in a bundle, how many bundles in a square, and bundles needed for your roof area.">
+<meta property="og:url" content="https://roof-pitch-calculator.vercel.app/shingle-calculator.html">
+<meta property="og:site_name" content="Roof Pitch Calculator">
+<meta property="og:image" content="https://roof-pitch-calculator.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#334155;background:#fff;line-height:1.6;font-size:17px}
+a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+header.site{background:#1a2e4a;color:#fff}header.site .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:18px 0 8px}.brand img{flex:none;width:40px;height:40px}.brand a{color:#fff;font-size:24px;font-weight:700;text-decoration:none}.brand span{display:block;font-size:13px;color:#cbd5e1;font-weight:400}
+nav.main{padding:6px 0 14px;display:flex;flex-wrap:wrap;gap:4px 18px}nav.main a{color:#dbeafe;font-size:15px;padding:4px 2px}nav.main a:hover,nav.main a.active{color:#fff;text-decoration:underline}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 48px}h1{font-size:34px;line-height:1.2;color:#1a2e4a;margin:0 0 12px}h2{font-size:26px;color:#1a2e4a;margin:36px 0 10px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}h3{font-size:20px;color:#1a2e4a;margin:24px 0 8px}p{margin:0 0 14px}.lead{font-size:19px;color:#475569}
+.calc{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:22px;margin:20px 0}.calc h2{border:0;margin-top:0}
+label{display:block;font-weight:600;margin:12px 0 4px}input[type=number],select{width:100%;max-width:320px;padding:10px;border:1px solid #94a3b8;border-radius:6px;font-size:16px;background:#fff}
+.row{display:flex;flex-wrap:wrap;gap:16px}.row>div{flex:1;min-width:180px}
+button{background:#1d4ed8;color:#fff;border:0;border-radius:6px;padding:12px 22px;font-size:16px;font-weight:600;cursor:pointer;margin-top:16px}button:hover{background:#1e40af}
+.results{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:16px 18px;margin-top:18px}.results dl{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:0}.results dt{font-weight:600;color:#475569}.results dd{margin:0;font-weight:700;color:#1a2e4a;text-align:right}
+.note{background:#eff6ff;border-left:4px solid #1d4ed8;padding:12px 16px;margin:16px 0}.warn{background:#fffbeb;border-left:4px solid #d97706;padding:12px 16px;margin:16px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}th{background:#1a2e4a;color:#fff}tr.hl td{background:#dbeafe;font-weight:700}tr:nth-child(even) td{background:#f8fafc}tr.hl:nth-child(even) td{background:#dbeafe}
+.faq h3{font-size:18px;margin:22px 0 6px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}.card{border:1px solid #cbd5e1;border-radius:10px;padding:18px}.card h3{margin-top:0}
+footer.site{background:#1a2e4a;color:#cbd5e1;margin-top:20px}footer.site .wrap{max-width:1080px;margin:0 auto;padding:28px 20px}footer.site a{color:#dbeafe}footer.site nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.diagram{width:100%;max-width:520px;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+@media(max-width:640px){h1{font-size:28px}.results dl{grid-template-columns:1fr}.results dd{text-align:left}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many shingles in a bundle?", "acceptedAnswer": {"@type": "Answer", "text": "A bundle of standard 3-tab shingles typically covers about one third of a roofing square, which is about 33.3 square feet. That is why three bundles are usually counted as one square. The number of individual shingles in a bundle varies by product, so check the packaging for the exact product you are buying."}}, {"@type": "Question", "name": "How many bundles of shingles in a square?", "acceptedAnswer": {"@type": "Answer", "text": "There are typically 3 bundles of standard 3-tab shingles in a square. One roofing square is 100 square feet. Architectural shingles are thicker and heavier, so the number of bundles per square can vary \u2014 check the maker's packaging before ordering."}}, {"@type": "Question", "name": "How many bundles do I need for my roof?", "acceptedAnswer": {"@type": "Answer", "text": "Measure the roof area in square feet, divide by 100 to get squares, add waste, then multiply by 3 bundles per square for standard 3-tab shingles. Use the calculator above and round up to whole bundles, because suppliers do not sell part of a bundle."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roof-pitch-calculator.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Shingle Roof Calculator", "item": "https://roof-pitch-calculator.vercel.app/shingle-calculator.html"}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="brand"><img src="/logo-mark.svg" width="40" height="40" alt="Roof Pitch Calculator logo"><a href="/">Roof Pitch Calculator<span>Pitch, angle, rafter length and roofing materials</span></a></div>
+<nav class="main" aria-label="Main navigation"><a href="index.html">Home</a> <a href="index.html">Roof Pitch Calculator</a> <a href="shingle-calculator.html" class="active">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="about.html">About</a> <a href="contact.html">Contact</a></nav>
+</div></header>
+<main>
+<h1>Shingle Roof Calculator</h1>
+
+<p class="lead">This shingle roof calculator works out how many bundles of shingles you need from the size and pitch of your roof. It answers the two questions roofers ask most: how many shingles in a bundle, and how many bundles of shingles in a square.</p>
+<section class="calc" aria-label="Shingle roof calculator">
+<h2>Calculate shingles needed</h2>
+<div class="row">
+<div><label for="sLen">Roof length (ft) — one slope, or total footprint length</label><input type="number" id="sLen" value="40" min="0" step="0.5"></div>
+<div><label for="sWid">Roof width (ft)</label><input type="number" id="sWid" value="30" min="0" step="0.5"></div>
+<div><label for="sPitch">Roof pitch (x:12)</label><input type="number" id="sPitch" value="6" min="0" max="24" step="0.5"></div>
+<div><label for="sWaste">Waste (%)</label><input type="number" id="sWaste" value="10" min="0" max="30" step="1"></div>
+</div>
+<button type="button" onclick="calcShingle()">Calculate shingles</button>
+<div class="results"><dl>
+<dt>Roof area</dt><dd id="sArea">&mdash;</dd>
+<dt>Roofing squares (100 sq ft each)</dt><dd id="sSq">&mdash;</dd>
+<dt>Bundles needed (3 per square)</dt><dd id="sBundles">&mdash;</dd>
+<dt>Estimated shingles (about 29 per 3-tab bundle)</dt><dd id="sCount">&mdash;</dd>
+</dl></div>
+<p><strong>Worked example:</strong> a 40 ft by 30 ft roof at 6/12 pitch has a footprint of 1,200 sq ft. With a multiplier of 1.118 the roof area is about 1,342 sq ft. Add 10% waste and the area is about 1,476 sq ft, or 14.76 squares, which needs 45 bundles (14.76 &times; 3, rounded up).</p>
+</section>
+<script>
+
+function fmt(n,d){return Number(n).toFixed(d===undefined?2:d)}
+function pitchResults(rise, run){
+  var r = rise/run;
+  var angle = Math.atan(r)*180/Math.PI;
+  var rafter = Math.sqrt(rise*rise+run*run);
+  var mult = rafter/run;
+  return {ratio:r, pitch: r*12, angle: angle, slope: r*100, rafter: rafter, mult: mult};
+}
+
+function calcShingle(){
+  var L=parseFloat(document.getElementById('sLen').value)||0, W=parseFloat(document.getElementById('sWid').value)||0;
+  var x=parseFloat(document.getElementById('sPitch').value)||0, waste=parseFloat(document.getElementById('sWaste').value)||0;
+  var r=pitchResults(x,12); var area=L*W*r.mult; var areaW=area*(1+waste/100); var sq=areaW/100; var bundles=Math.ceil(sq*3);
+  document.getElementById('sArea').textContent=fmt(areaW,0)+' sq ft (incl. '+waste+'% waste)';
+  document.getElementById('sSq').textContent=fmt(sq,2)+' squares';
+  document.getElementById('sBundles').textContent=bundles+' bundles';
+  document.getElementById('sCount').textContent='about '+(bundles*29)+' shingles';
+}
+</script>
+<h2>How many shingles in a bundle?</h2>
+<p>A bundle of standard 3-tab shingles typically covers about 33.3 square feet, which is one third of a roofing square. The exact number of shingles in a bundle varies by brand and product, and a typical 3-tab bundle contains about 29 shingles. Architectural shingles are thicker, so a bundle of those contains fewer shingles but covers the same area per bundle in most cases. Always check the packaging for the product you plan to buy, because that is the only reliable figure for that product.</p>
+<h2>How many bundles of shingles in a square?</h2>
+<p>There are typically 3 bundles of standard 3-tab shingles in a square. A roofing square is 100 square feet of roof surface, so 3 bundles at about 33.3 square feet each make one square. This is the figure used by the calculator above. For architectural shingles, the bundles-per-square figure can differ, so confirm it from the maker's data sheet before you order.</p>
+<table><tr><th>Roof area</th><th>Squares</th><th>Bundles (3-tab, before waste)</th></tr>
+<tr><td>1,000 sq ft</td><td>10</td><td>30</td></tr>
+<tr><td>1,500 sq ft</td><td>15</td><td>45</td></tr>
+<tr><td>2,000 sq ft</td><td>20</td><td>60</td></tr>
+<tr><td>2,500 sq ft</td><td>25</td><td>75</td></tr></table>
+<p>Add waste on top of these figures. A waste allowance of 10 per cent is common for a simple roof, and 15 per cent is common for a roof with hips, valleys and dormers.</p>
+<h2>FAQs</h2>
+<div class="faq">
+<h3>How many shingles in a bundle?</h3>
+<p>A bundle of standard 3-tab shingles typically covers about one third of a roofing square, which is about 33.3 square feet. That is why three bundles are usually counted as one square. The number of individual shingles in a bundle varies by product, so check the packaging for the exact product you are buying.</p>
+<h3>How many bundles of shingles in a square?</h3>
+<p>There are typically 3 bundles of standard 3-tab shingles in a square. One roofing square is 100 square feet. Architectural shingles are thicker and heavier, so the number of bundles per square can vary — check the maker's packaging before ordering.</p>
+<h3>How many bundles do I need for my roof?</h3>
+<p>Measure the roof area in square feet, divide by 100 to get squares, add waste, then multiply by 3 bundles per square for standard 3-tab shingles. Use the calculator above and round up to whole bundles, because suppliers do not sell part of a bundle.</p>
+</div>
+
+</main>
+<footer class="site"><div class="wrap"><nav aria-label="Footer navigation"><a href="index.html">Home</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="how-to-calculate-roof-pitch.html">How to Calculate Roof Pitch</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="privacy-policy.html">Privacy Policy</a> <a href="terms.html">Terms</a> <a href="disclaimer.html">Disclaimer</a></nav>
+<p>Roof Pitch Calculator provides planning estimates only. It is not structural or building-code advice. Always check local building codes and consult a qualified roofing professional before work begins.</p>
+<p>&copy; 2026 Roof Pitch Calculator. All rights reserved.</p></div></footer>
+</body>
+</html>

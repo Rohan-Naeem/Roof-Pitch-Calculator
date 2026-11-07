@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roof Pitch Calculator | Pitch, Angle & Rafter Length</title>
+<meta name="description" content="Calculate roof pitch, angle, slope, rafter length and multiplier. Free roof pitch calculator with chart, shingle and material calculators.">
+<link rel="canonical" href="https://roof-pitch-calculator.vercel.app/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roof Pitch Calculator | Pitch, Angle & Rafter Length">
+<meta property="og:description" content="Calculate roof pitch, angle, slope, rafter length and multiplier. Free roof pitch calculator with chart, shingle and material calculators.">
+<meta property="og:url" content="https://roof-pitch-calculator.vercel.app/">
+<meta property="og:site_name" content="Roof Pitch Calculator">
+<meta property="og:image" content="https://roof-pitch-calculator.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#334155;background:#fff;line-height:1.6;font-size:17px}
+a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+header.site{background:#1a2e4a;color:#fff}header.site .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:18px 0 8px}.brand img{flex:none;width:40px;height:40px}.brand a{color:#fff;font-size:24px;font-weight:700;text-decoration:none}.brand span{display:block;font-size:13px;color:#cbd5e1;font-weight:400}
+nav.main{padding:6px 0 14px;display:flex;flex-wrap:wrap;gap:4px 18px}nav.main a{color:#dbeafe;font-size:15px;padding:4px 2px}nav.main a:hover,nav.main a.active{color:#fff;text-decoration:underline}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 48px}h1{font-size:34px;line-height:1.2;color:#1a2e4a;margin:0 0 12px}h2{font-size:26px;color:#1a2e4a;margin:36px 0 10px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}h3{font-size:20px;color:#1a2e4a;margin:24px 0 8px}p{margin:0 0 14px}.lead{font-size:19px;color:#475569}
+.calc{background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:22px;margin:20px 0}.calc h2{border:0;margin-top:0}
+label{display:block;font-weight:600;margin:12px 0 4px}input[type=number],select{width:100%;max-width:320px;padding:10px;border:1px solid #94a3b8;border-radius:6px;font-size:16px;background:#fff}
+.row{display:flex;flex-wrap:wrap;gap:16px}.row>div{flex:1;min-width:180px}
+button{background:#1d4ed8;color:#fff;border:0;border-radius:6px;padding:12px 22px;font-size:16px;font-weight:600;cursor:pointer;margin-top:16px}button:hover{background:#1e40af}
+.results{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:16px 18px;margin-top:18px}.results dl{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:0}.results dt{font-weight:600;color:#475569}.results dd{margin:0;font-weight:700;color:#1a2e4a;text-align:right}
+.note{background:#eff6ff;border-left:4px solid #1d4ed8;padding:12px 16px;margin:16px 0}.warn{background:#fffbeb;border-left:4px solid #d97706;padding:12px 16px;margin:16px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}th{background:#1a2e4a;color:#fff}tr.hl td{background:#dbeafe;font-weight:700}tr:nth-child(even) td{background:#f8fafc}tr.hl:nth-child(even) td{background:#dbeafe}
+.faq h3{font-size:18px;margin:22px 0 6px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}.card{border:1px solid #cbd5e1;border-radius:10px;padding:18px}.card h3{margin-top:0}
+footer.site{background:#1a2e4a;color:#cbd5e1;margin-top:20px}footer.site .wrap{max-width:1080px;margin:0 auto;padding:28px 20px}footer.site a{color:#dbeafe}footer.site nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}
+.diagram{width:100%;max-width:520px;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+@media(max-width:640px){h1{font-size:28px}.results dl{grid-template-columns:1fr}.results dd{text-align:left}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Roof Pitch Calculator", "url": "https://roof-pitch-calculator.vercel.app"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the standard pitch for a roof?", "acceptedAnswer": {"@type": "Answer", "text": "In the United States, a common standard pitch for a house roof is between 4/12 and 9/12. A 4/12 pitch rises 4 inches for every 12 inches of horizontal run, and a 9/12 pitch rises 9 inches over the same run. Lower pitches are common on modern and shed-style homes, while steeper pitches are common where snow or heavy rain must run off quickly."}}, {"@type": "Question", "name": "What is a 4/12 roof pitch?", "acceptedAnswer": {"@type": "Answer", "text": "A 4/12 roof pitch rises 4 inches for every 12 inches of horizontal run. It has an angle of about 18.4 degrees and a slope of 33.3 per cent. It is a low-to-medium pitch that is walkable in dry conditions and can be shingled with standard underlayment."}}, {"@type": "Question", "name": "What is the minimum roof pitch for snow?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single minimum for every roof, because snow load depends on local climate and building code. As a general guide, a pitch of around 30 degrees, roughly 6/12 to 7/12, sheds snow much more readily than a low-slope roof. In heavy-snow areas, check the local building code before choosing a pitch."}}, {"@type": "Question", "name": "What is a 12/12 pitch roof in degrees?", "acceptedAnswer": {"@type": "Answer", "text": "A 12/12 pitch rises 12 inches for every 12 inches of run, so the angle is 45 degrees and the slope is 100 per cent. It is a steep roof and is not normally walked on without proper safety equipment."}}, {"@type": "Question", "name": "What roof pitch is 30 degrees?", "acceptedAnswer": {"@type": "Answer", "text": "A roof pitch of about 30 degrees is close to a 7/12 pitch. A 7/12 pitch has an angle of about 30.3 degrees. A 6/12 pitch is about 26.6 degrees, so 30 degrees sits between 6/12 and 7/12."}}, {"@type": "Question", "name": "What is a roof pitch multiplier?", "acceptedAnswer": {"@type": "Answer", "text": "The roof pitch multiplier is the number you multiply a flat footprint area by to get the sloped roof area. It equals the rafter length divided by the run, or the square root of 1 plus the rise-over-run squared. For a 6/12 pitch, the multiplier is 1.118, so a 1,000 square foot footprint becomes about 1,118 square feet of roof surface."}}, {"@type": "Question", "name": "What roof pitch is walkable?", "acceptedAnswer": {"@type": "Answer", "text": "As a general rule, roofs up to about 6/12 are walkable in dry conditions by an experienced person wearing proper footwear, although this is never a guarantee of safety. Steeper roofs, wet roofs and roofs with loose material should not be walked on. If you are unsure, stay off the roof and measure from inside the attic or from the ground."}}, {"@type": "Question", "name": "Can you shingle a 3/12 pitch roof?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, a 3/12 pitch roof can be shingled, but it needs extra care. Use a suitable underlayment or membrane beneath the shingles, follow the shingle maker's instructions for low-slope installation, and check local code. Below 3/12, most shingle makers do not recommend standard shingles, and a low-slope roofing system is usually the safer choice."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roof-pitch-calculator.vercel.app/"}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="brand"><img src="/logo-mark.svg" width="40" height="40" alt="Roof Pitch Calculator logo"><a href="/">Roof Pitch Calculator<span>Pitch, angle, rafter length and roofing materials</span></a></div>
+<nav class="main" aria-label="Main navigation"><a href="index.html">Home</a> <a href="index.html" class="active">Roof Pitch Calculator</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="about.html">About</a> <a href="contact.html">Contact</a></nav>
+</div></header>
+<main>
+<h1>Roof Pitch Calculator</h1>
+
+<p class="lead">Enter the rise and run of your roof, or a pitch or angle you already know, and this calculator works out the pitch, angle, slope, rafter length and roof pitch multiplier. It is a planning tool for homeowners, builders and roofers in the United States.</p>
+
+<section class="calc" aria-label="Roof pitch calculator">
+<h2>Calculate roof pitch</h2>
+<div class="row">
+<div><label for="mode">Start from</label>
+<select id="mode"><option value="riserun">Rise and run</option><option value="pitch">Pitch (x:12)</option><option value="angle">Angle (degrees)</option></select></div>
+</div>
+<div id="box-riserun">
+<div class="row">
+<div><label for="riseFt">Rise — feet</label><input type="number" id="riseFt" value="6" min="0" step="0.25"></div>
+<div><label for="riseIn">Rise — inches</label><input type="number" id="riseIn" value="0" min="0" max="11" step="0.25"></div>
+<div><label for="runFt">Run — feet</label><input type="number" id="runFt" value="12" min="0.1" step="0.25"></div>
+<div><label for="runIn">Run — inches</label><input type="number" id="runIn" value="0" min="0" max="11" step="0.25"></div>
+</div>
+</div>
+<div id="box-pitch" style="display:none">
+<div class="row"><div><label for="pitchX">Pitch (inches of rise per 12 inches of run)</label><input type="number" id="pitchX" value="6" min="0" max="24" step="0.5"></div></div>
+<p>For example, enter 6 for a 6/12 pitch.</p>
+</div>
+<div id="box-angle" style="display:none">
+<div class="row"><div><label for="angleIn">Angle (degrees)</label><input type="number" id="angleIn" value="26.6" min="0" max="89" step="0.1"></div></div>
+</div>
+<div class="row">
+<div><label for="lenFt">Roof length, in feet (optional, for roof area)</label><input type="number" id="lenFt" placeholder="e.g. 40" min="0" step="0.5"></div>
+<div><label for="widFt">Roof width, in feet (optional, for roof area)</label><input type="number" id="widFt" placeholder="e.g. 30" min="0" step="0.5"></div>
+</div>
+<button type="button" onclick="calcHome()">Calculate</button>
+<div class="results" id="homeResults" aria-live="polite"><dl>
+<dt>Roof pitch</dt><dd id="oPitch">6/12</dd>
+<dt>Angle</dt><dd id="oAngle">26.6&deg;</dd>
+<dt>Slope</dt><dd id="oSlope">50.0%</dd>
+<dt>Rafter length (for a 12 ft run)</dt><dd id="oRafter">13.42 ft</dd>
+<dt>Roof pitch multiplier</dt><dd id="oMult">1.118</dd>
+<dt>Roof area factor</dt><dd id="oFactor">1.118</dd>
+<dt>Roof area (if length and width given)</dt><dd id="oArea">&mdash;</dd>
+</dl></div>
+<p><strong>Worked example:</strong> rise 3 ft, run 12 ft gives a 3:12 pitch, an angle of 14.0&deg;, a slope of 25%, a rafter length of 12.37 ft and a multiplier of 1.031.</p>
+<svg class="diagram" id="roofSvg" viewBox="0 0 520 220" role="img" aria-label="Roof pitch diagram"><polygon id="roofPoly" points="20,190 260,90 500,190" fill="#dbeafe" stroke="#1a2e4a" stroke-width="3"/><line x1="20" y1="190" x2="500" y2="190" stroke="#1a2e4a" stroke-width="3"/><line x1="260" y1="90" x2="260" y2="190" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,4"/><text x="130" y="120" font-size="14" fill="#1a2e4a">Rafter</text><text x="270" y="150" font-size="14" fill="#1a2e4a">Rise</text><text x="300" y="210" font-size="14" fill="#1a2e4a">Run</text></svg>
+</section>
+<script>
+
+function fmt(n,d){return Number(n).toFixed(d===undefined?2:d)}
+function pitchResults(rise, run){
+  var r = rise/run;
+  var angle = Math.atan(r)*180/Math.PI;
+  var rafter = Math.sqrt(rise*rise+run*run);
+  var mult = rafter/run;
+  return {ratio:r, pitch: r*12, angle: angle, slope: r*100, rafter: rafter, mult: mult};
+}
+
+function calcHome(){
+  var mode=document.getElementById('mode').value, rise, run;
+  if(mode==='pitch'){var x=parseFloat(document.getElementById('pitchX').value)||0; rise=x; run=12;}
+  else if(mode==='angle'){var a=parseFloat(document.getElementById('angleIn').value)||0; run=12; rise=12*Math.tan(a*Math.PI/180);}
+  else{rise=(parseFloat(document.getElementById('riseFt').value)||0)*12+(parseFloat(document.getElementById('riseIn').value)||0); run=(parseFloat(document.getElementById('runFt').value)||0)*12+(parseFloat(document.getElementById('runIn').value)||0); rise=rise/12; run=run/12;}
+  if(!run||run<=0||rise<0){return;}
+  var r=pitchResults(rise,run);
+  document.getElementById('oPitch').textContent=fmt(r.pitch,1)+'/12';
+  document.getElementById('oAngle').textContent=fmt(r.angle,1)+'°';
+  document.getElementById('oSlope').textContent=fmt(r.slope,1)+'%';
+  var rafter12=Math.sqrt(144+Math.pow(r.pitch,2));
+  document.getElementById('oRafter').textContent=fmt(rafter12,2)+' ft';
+  document.getElementById('oMult').textContent=fmt(r.mult,3);
+  document.getElementById('oFactor').textContent=fmt(r.mult,3);
+  var L=parseFloat(document.getElementById('lenFt').value), W=parseFloat(document.getElementById('widFt').value);
+  document.getElementById('oArea').textContent=(L>0&&W>0)?fmt(L*W*r.mult,0)+' sq ft ('+fmt(L*W*r.mult/100,2)+' squares)':'—';
+  var peakY=190-Math.min(160, Math.max(10, r.ratio*240));
+  document.getElementById('roofPoly').setAttribute('points','20,190 260,'+peakY.toFixed(0)+' 500,190');
+}
+document.getElementById('mode').addEventListener('change',function(){
+  var m=this.value;
+  document.getElementById('box-riserun').style.display=m==='riserun'?'block':'none';
+  document.getElementById('box-pitch').style.display=m==='pitch'?'block':'none';
+  document.getElementById('box-angle').style.display=m==='angle'?'block':'none';
+});
+</script>
+
+<h2>What is the roof pitch?</h2>
+<p>Roof pitch describes how steep a roof is. It is usually written as two numbers, for example 6/12. The first number is the rise — how far the roof climbs vertically — and the second number is the run — how far it travels horizontally. A 6/12 pitch rises 6 inches for every 12 inches of run. The same pitch can also be given as an angle in degrees, as a percentage slope, or as a multiplier. This calculator converts between all of those forms, so you can use whichever measurement you already have.</p>
+<p>Pitch matters because it affects how water and snow run off a roof, which roofing materials can be used, how much material is needed, and how safe the roof is to walk on. A low pitch holds water longer, while a steep pitch sheds it quickly but needs more material and more care to work on.</p>
+
+<h2>How to calculate roof pitch?</h2>
+<p>To calculate roof pitch, measure the rise and the run in the same units, then divide the rise by the run and multiply by 12. That gives the pitch in x:12 form.</p>
+<p><strong>Formula:</strong> pitch = (rise &divide; run) &times; 12 &nbsp;|&nbsp; angle = arctan(rise &divide; run) &nbsp;|&nbsp; slope % = (rise &divide; run) &times; 100 &nbsp;|&nbsp; rafter length = &radic;(rise&sup2; + run&sup2;)</p>
+<p><strong>Worked example:</strong> rise 3 ft, run 12 ft. Rise divided by run is 0.25. Multiply by 12 and the pitch is 3:12. The angle is arctan(0.25), about 14.0 degrees. The slope is 25 per cent. The rafter length is the square root of 3&sup2; + 12&sup2;, which is 12.37 ft. The multiplier is 12.37 divided by 12, or 1.031.</p>
+<p>For a fuller step-by-step measuring guide, including how to measure from inside the attic, see our page on <a href="/how-to-calculate-roof-pitch.html">how to calculate roof pitch</a>.</p>
+
+<h2>How to figure out roof pitch</h2>
+<p>Figuring out the pitch of a roof is a short job once you know where to measure. From inside the attic, hold a level horizontally from the underside of a rafter, mark 12 inches along the level, then measure straight down from that mark to the rafter. That vertical distance, in inches, is the first number of the pitch. If the distance is 6 inches, the pitch is 6/12. If you are measuring from the roof edge instead, use the same 12-inch run and measure the rise over that distance. Always work safely, and do not walk on a roof you are unsure about.</p>
+
+<h2>How do you determine the pitch of a roof?</h2>
+<p>You determine the pitch of a roof by comparing its rise with its run. The rise is the vertical climb, the run is the horizontal distance, and the pitch is the rise over a 12-inch run. A spirit level and a tape measure are enough for most homes. Measure the run first, then the rise, keep both in the same units, and use the formula above. If you already know the angle, use the calculator above: enter the angle and it will give you the pitch, slope and multiplier.</p>
+
+<h2>Roof pitch multiplier</h2>
+<p>The roof pitch multiplier turns a flat footprint area into the true sloped roof area. Multiply the length by the width of the building footprint to get the flat area, then multiply by the multiplier for your pitch. For a 6/12 pitch the multiplier is 1.118, so a 1,200 square foot footprint is about 1,342 square feet of roof. For a 3/12 pitch the multiplier is 1.031, and for a 12/12 pitch it is 1.414. The <a href="/roof-pitch-chart.html">roof pitch chart</a> lists the multiplier for every common pitch.</p>
+
+<h2>Roof slope calculator &ndash; example of use</h2>
+<p>Suppose a house is 30 feet wide and 40 feet long, with a 6/12 pitch. The footprint is 1,200 square feet. Multiply by the 6/12 multiplier of 1.118 and the roof surface is about 1,342 square feet, or 13.42 roofing squares. That figure is the starting point for a <a href="/shingle-calculator.html">shingle roof calculator</a> or a <a href="/roofing-material-calculator.html">roofing material calculator</a>, before waste is added. Costs vary by material, area and contractor, so get local quotes rather than relying on a single online price.</p>
+
+<div class="cards">
+<div class="card"><h3>Shingle calculator</h3><p>Work out how many bundles of shingles you need, and how many bundles there are in a square.</p><p><a href="/shingle-calculator.html">Use the shingle calculator &rarr;</a></p></div>
+<div class="card"><h3>Roof pitch chart</h3><p>Every pitch from 0.5/12 to 12/12, with angle, slope and multiplier.</p><p><a href="/roof-pitch-chart.html">See the pitch chart &rarr;</a></p></div>
+<div class="card"><h3>Metal roof pitch</h3><p>What is the minimum pitch for a metal roof, and why it matters.</p><p><a href="/minimum-pitch-metal-roof.html">Read the metal roof guide &rarr;</a></p></div>
+<div class="card"><h3>Shed roof calculator</h3><p>Pitch and rafter length for a single-slope shed or lean-to roof.</p><p><a href="/shed-roof-slope-calculator.html">Use the shed calculator &rarr;</a></p></div>
+</div>
+
+<h2>FAQs</h2>
+<div class="faq">
+<h3>What is the standard pitch for a roof?</h3>
+<p>In the United States, a common standard pitch for a house roof is between 4/12 and 9/12. A 4/12 pitch rises 4 inches for every 12 inches of horizontal run, and a 9/12 pitch rises 9 inches over the same run. Lower pitches are common on modern and shed-style homes, while steeper pitches are common where snow or heavy rain must run off quickly.</p>
+<h3>What is a 4/12 roof pitch?</h3>
+<p>A 4/12 roof pitch rises 4 inches for every 12 inches of horizontal run. It has an angle of about 18.4 degrees and a slope of 33.3 per cent. It is a low-to-medium pitch that is walkable in dry conditions and can be shingled with standard underlayment.</p>
+<h3>What is the minimum roof pitch for snow?</h3>
+<p>There is no single minimum for every roof, because snow load depends on local climate and building code. As a general guide, a pitch of around 30 degrees, roughly 6/12 to 7/12, sheds snow much more readily than a low-slope roof. In heavy-snow areas, check the local building code before choosing a pitch.</p>
+<h3>What is a 12/12 pitch roof in degrees?</h3>
+<p>A 12/12 pitch rises 12 inches for every 12 inches of run, so the angle is 45 degrees and the slope is 100 per cent. It is a steep roof and is not normally walked on without proper safety equipment.</p>
+<h3>What roof pitch is 30 degrees?</h3>
+<p>A roof pitch of about 30 degrees is close to a 7/12 pitch. A 7/12 pitch has an angle of about 30.3 degrees. A 6/12 pitch is about 26.6 degrees, so 30 degrees sits between 6/12 and 7/12.</p>
+<h3>What is a roof pitch multiplier?</h3>
+<p>The roof pitch multiplier is the number you multiply a flat footprint area by to get the sloped roof area. It equals the rafter length divided by the run, or the square root of 1 plus the rise-over-run squared. For a 6/12 pitch, the multiplier is 1.118, so a 1,000 square foot footprint becomes about 1,118 square feet of roof surface.</p>
+<h3>What roof pitch is walkable?</h3>
+<p>As a general rule, roofs up to about 6/12 are walkable in dry conditions by an experienced person wearing proper footwear, although this is never a guarantee of safety. Steeper roofs, wet roofs and roofs with loose material should not be walked on. If you are unsure, stay off the roof and measure from inside the attic or from the ground.</p>
+<h3>Can you shingle a 3/12 pitch roof?</h3>
+<p>Yes, a 3/12 pitch roof can be shingled, but it needs extra care. Use a suitable underlayment or membrane beneath the shingles, follow the shingle maker's instructions for low-slope installation, and check local code. Below 3/12, most shingle makers do not recommend standard shingles, and a low-slope roofing system is usually the safer choice.</p>
+</div>
+<p class="note">Planning estimate only: this page helps you plan and compare pitches. It does not replace a structural check, a building-code check or a professional roof inspection.</p>
+
+</main>
+<footer class="site"><div class="wrap"><nav aria-label="Footer navigation"><a href="index.html">Home</a> <a href="shingle-calculator.html">Shingle Calculator</a> <a href="roof-pitch-chart.html">Roof Pitch Chart</a> <a href="minimum-pitch-metal-roof.html">Metal Roof Pitch</a> <a href="shed-roof-slope-calculator.html">Shed Roof Calculator</a> <a href="roofing-material-calculator.html">Roofing Material Calculator</a> <a href="how-to-calculate-roof-pitch.html">How to Calculate Roof Pitch</a> <a href="about.html">About</a> <a href="contact.html">Contact</a> <a href="privacy-policy.html">Privacy Policy</a> <a href="terms.html">Terms</a> <a href="disclaimer.html">Disclaimer</a></nav>
+<p>Roof Pitch Calculator provides planning estimates only. It is not structural or building-code advice. Always check local building codes and consult a qualified roofing professional before work begins.</p>
+<p>&copy; 2026 Roof Pitch Calculator. All rights reserved.</p></div></footer>
+</body>
+</html>
